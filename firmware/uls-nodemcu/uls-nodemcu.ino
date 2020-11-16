@@ -3,6 +3,7 @@
 #define T_LED_RED_PIN       5
 #define T_LED_GREEN_PIN     12
 #define T_LED_BLUE_PIN      15
+#define SINGLE_LED_PIN      13
 #define ALED_PIN            4
 #define POWER_SWITCH_BTN    14
 #define IR_PIN              0
@@ -53,6 +54,7 @@ void setup(){
     pinMode(T_LED_RED_PIN, OUTPUT);
     pinMode(T_LED_GREEN_PIN, OUTPUT);
     pinMode(T_LED_BLUE_PIN, OUTPUT);
+    pinMode(SINGLE_LED_PIN, OUTPUT);
     pinMode(POWER_SWITCH_BTN, INPUT_PULLUP);
     btn.setDebounce(5);
     FastLED.addLeds<WS2812B, ALED_PIN, GRB>(aled, NUM_ALED);
@@ -76,9 +78,7 @@ void loop(){
 
     if(time_client.getHours() == morning_hour && 
         time_client.getMinutes() == morning_min){
-        if(!power_state){
             led_power_on();
-        }
     }
     
 
