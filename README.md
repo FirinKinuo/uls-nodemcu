@@ -5,9 +5,9 @@
 ## Methods
 All methods are sent to http://{ip}/api/{method}/
 
-| Type | Method | Params | Description | Example |
+| Type | Method | Params | Description |
 | ----- | ------ | ------ | ----- | ---- |
-| POST | aled | hex | Sets the color of the address led in hex format | /api/aled/?hex={value} |
-| POST | tled | hex | Sets the color of the led in hex format | /api/tled/?hex={value} |
-| POST | power | switch | Turns the light on and off, accepts 0 or 1 | /api/power/?switch={value} |
+| POST | aled | hex | Sets the color of the address led in hex format |
+| POST | tled | hex | Sets the color of the led in hex format |
+| POST | power | switch | Turns the light on and off, accepts 0 or 1 |
 
