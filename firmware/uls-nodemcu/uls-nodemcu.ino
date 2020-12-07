@@ -21,13 +21,11 @@ const uint8_t morning_min = 30;
 // ---- ---- ----
 
 // ---- SYSTEM DEFINE ----
-#define True 1
-#define False 0
 #define FASTLED_ESP8266_RAW_PIN_ORDER
 // ---- ---- ----
 
 // ---- SYSTEM VARS ----
-bool power_state = True;
+bool power_state = true;
 // ---- ---- ----
 
 // ---- LIBS ----
@@ -37,6 +35,7 @@ bool power_state = True;
 #include <ESP8266WebServer.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
+#include <EEPROM.h>
 // ---- ---- ----
 
 // ---- INITS CLASS ----
@@ -48,8 +47,14 @@ NTPClient time_client(ntpUDP, "pool.ntp.org", utc_offset);
 
 // ---- ---- ----
 
+// ---- Addresses in EEPROM memory ----
+const uint16_t EEPROM_ALED_COLOR_BYTE = 100;
+const uint16_t EEPROM_TLED_COLOR_BYTE = 104;
+// ---- ---- ----
+
 void setup(){
     Serial.begin(115200);
+    EEPROM.begin(512);
     pinMode(BOARD_LED_PIN, OUTPUT);
     pinMode(T_LED_RED_PIN, OUTPUT);
     pinMode(T_LED_GREEN_PIN, OUTPUT);
